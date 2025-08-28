@@ -1,123 +1,3 @@
-// import {
-//   Pressable,
-//   StyleSheet,
-//   Text,
-//   Image,
-//   View,
-//   ScrollView,
-// } from 'react-native';
-// import React, {useEffect, useState} from 'react';
-// import axios from 'axios';
-
-// const User = ({item, Id}) => {
-//   const [profileImageUrl, setProfileImageUrl] = useState('');
-//   const posterid = item._id;
-
-//   const fetchProfilepicByPosterId = async () => {
-//     try {
-//       const response = await axios.get(
-//         `http://10.0.2.2:5001/profilepic/${posterid}`,
-//       );
-//       console.log(response.data, 'Response from backend'); // Add this line for debugging
-
-//       if (response.data && response.data.posterid === posterid) {
-//         setProfileImageUrl(response.data.profileImageUrl);
-//         console.log(response.data.profileImageUrl, 'Profile image URL');
-//       } else {
-//         ('Profile image not found for poster ID:', posterid);
-//       }
-//     }
-//       catch (error) {
-//       console.error('Error fetching posts:', error);
-//       throw error;
-//     }
-//   };
-
-//   useEffect(() => {
-
-//       fetchProfilepicByPosterId();
-
-//   }, [posterid]);
-
-//   const [requestSent, setRequestSent] = useState(false);
-//   const sendFriendRequest = async (currentUserId, selectedUserId) => {
-//     try {
-//       const response = await fetch('http://10.0.2.2:5001/friend-request', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({currentUserId, selectedUserId}),
-//       });
-//       if (response.ok) {
-//         setRequestSent(true);
-//       }
-//     } catch (error) {
-//       console.log('error message', error);
-//     }
-//   };
-//   return (
-//     <ScrollView showsVerticalScrollIndicator={true}>
-//       <Pressable
-//         style={{
-//           flexDirection: 'row',
-//           alignItems: 'center',
-//           marginVertical: 10,
-//           marginTop: 0,
-//         }}>
-//         <View>
-//           {/* <Image
-//           style={{width: 50, height: 50, borderRadius: 25, resizeMode: 'cover'}}
-//           size={100}
-//           source={require('../assets/avatar.png')}
-//         /> */}
-
-//           {profileImageUrl ? (
-//             <Image
-//               style={{width: 50, height: 50, borderRadius: 25, resizeMode: 'cover'}}
-//               size={100}
-//               source={{uri: profileImageUrl}}
-//             />
-//           ) : (
-//             <Image
-//               style={{
-//                 width: 50,
-//                 height: 50,
-//                 borderRadius: 25,
-//                 marginTop: 3,
-//                 resizeMode: 'cover',
-//               }}
-//               size={100}
-//               source={require('../assets/avatar.png')}
-//             />
-//           )}
-//         </View>
-//         <View style={{marginLeft: 12, flex: 1}}>
-//           <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
-//             {item?.name}
-//           </Text>
-//           <Text style={{marginTop: 3, fontSize: 15}}>{item?.email}</Text>
-//         </View>
-//         <Pressable
-//           onPress={() => sendFriendRequest(Id, item._id)}
-//           style={{
-//             backgroundColor: '#001FBF',
-//             padding: 10,
-//             borderRadius: 6,
-//             width: 105,
-//           }}>
-//           <Text style={{textAlign: 'center', color: 'white', fontSize: 13}}>
-//             Add Friend
-//           </Text>
-//         </Pressable>
-//       </Pressable>
-//     </ScrollView>
-//   );
-// };
-
-// export default User;
-
-// const style = StyleSheet.create({});
 
 import {
   Pressable,
@@ -398,3 +278,124 @@ const User = ({item, Id, navigation}) => {
 };
 export default User;
 const style = StyleSheet.create({});
+
+
+// import {
+//   Pressable,
+//   StyleSheet,
+//   Text,
+//   Image,
+//   View,
+//   ScrollView,
+// } from 'react-native';
+// import React, {useEffect, useState} from 'react';
+// import axios from 'axios';
+
+// const User = ({item, Id}) => {
+//   const [profileImageUrl, setProfileImageUrl] = useState('');
+//   const posterid = item._id;
+
+//   const fetchProfilepicByPosterId = async () => {
+//     try {
+//       const response = await axios.get(
+//         `http://10.0.2.2:5001/profilepic/${posterid}`,
+//       );
+//       console.log(response.data, 'Response from backend'); // Add this line for debugging
+
+//       if (response.data && response.data.posterid === posterid) {
+//         setProfileImageUrl(response.data.profileImageUrl);
+//         console.log(response.data.profileImageUrl, 'Profile image URL');
+//       } else {
+//         ('Profile image not found for poster ID:', posterid);
+//       }
+//     }
+//       catch (error) {
+//       console.error('Error fetching posts:', error);
+//       throw error;
+//     }
+//   };
+
+//   useEffect(() => {
+
+//       fetchProfilepicByPosterId();
+
+//   }, [posterid]);
+
+//   const [requestSent, setRequestSent] = useState(false);
+//   const sendFriendRequest = async (currentUserId, selectedUserId) => {
+//     try {
+//       const response = await fetch('http://10.0.2.2:5001/friend-request', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({currentUserId, selectedUserId}),
+//       });
+//       if (response.ok) {
+//         setRequestSent(true);
+//       }
+//     } catch (error) {
+//       console.log('error message', error);
+//     }
+//   };
+//   return (
+//     <ScrollView showsVerticalScrollIndicator={true}>
+//       <Pressable
+//         style={{
+//           flexDirection: 'row',
+//           alignItems: 'center',
+//           marginVertical: 10,
+//           marginTop: 0,
+//         }}>
+//         <View>
+//           {/* <Image
+//           style={{width: 50, height: 50, borderRadius: 25, resizeMode: 'cover'}}
+//           size={100}
+//           source={require('../assets/avatar.png')}
+//         /> */}
+
+//           {profileImageUrl ? (
+//             <Image
+//               style={{width: 50, height: 50, borderRadius: 25, resizeMode: 'cover'}}
+//               size={100}
+//               source={{uri: profileImageUrl}}
+//             />
+//           ) : (
+//             <Image
+//               style={{
+//                 width: 50,
+//                 height: 50,
+//                 borderRadius: 25,
+//                 marginTop: 3,
+//                 resizeMode: 'cover',
+//               }}
+//               size={100}
+//               source={require('../assets/avatar.png')}
+//             />
+//           )}
+//         </View>
+//         <View style={{marginLeft: 12, flex: 1}}>
+//           <Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>
+//             {item?.name}
+//           </Text>
+//           <Text style={{marginTop: 3, fontSize: 15}}>{item?.email}</Text>
+//         </View>
+//         <Pressable
+//           onPress={() => sendFriendRequest(Id, item._id)}
+//           style={{
+//             backgroundColor: '#001FBF',
+//             padding: 10,
+//             borderRadius: 6,
+//             width: 105,
+//           }}>
+//           <Text style={{textAlign: 'center', color: 'white', fontSize: 13}}>
+//             Add Friend
+//           </Text>
+//         </Pressable>
+//       </Pressable>
+//     </ScrollView>
+//   );
+// };
+
+// export default User;
+// const style = StyleSheet.create({});
